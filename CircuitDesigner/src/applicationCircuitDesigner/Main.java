@@ -1,9 +1,7 @@
 package applicationCircuitDesigner;
 
-import java.io.IOException;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -23,7 +21,8 @@ public class Main extends Application {
 		} catch(Exception e) {
 			e.printStackTrace();
 			}
-		root.setCenter(FXMLLoader.load(getClass().getResource("/applicationCircuitDesigner/view/RootLayout.fxml")));
+		root.setCenter(new RootLayout());
+		//FXMLLoader.load(getClass().getResource("/applicationCircuitDesigner/view/RootLayout.fxml")));
 		
 
 	 }

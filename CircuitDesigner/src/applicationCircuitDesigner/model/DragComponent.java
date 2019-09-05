@@ -10,7 +10,7 @@ public class DragComponent extends AnchorPane{
 	private DragComponentType cType;
 	public DragComponent() {
 		FXMLLoader fxmlLoader=new FXMLLoader(getClass().getResource("/applicationCircuitDesigner/view/DragComponent.fxml"));
-		fxmlLoader.setRoot(this);
+		//fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 		
 		try {
@@ -37,26 +37,34 @@ public class DragComponent extends AnchorPane{
 	    getStyleClass().add("dragComponent");
 	    switch (cType) {
 	        
-	    case blue:getStyleClass().add("component-blue");
-	    break;
+	    case and:
+			getStyleClass().add("component-and");
+		break;
 
-	    case red:getStyleClass().add("component-red");            
-	    break;
+		case nand:
+			getStyleClass().add("component-nand");			
+		break;
 
-	    case green:getStyleClass().add("component-green");
-	    break;
+		case or:
+			getStyleClass().add("component-or");
+		break;
 
-	    case grey:getStyleClass().add("component-grey");
-	    break;
+		case xnor:
+			getStyleClass().add("component-xnor");
+		break;
 
-	    case purple: getStyleClass().add("component-purple");
-	    break;
+		case xor:
+			getStyleClass().add("component-xor");
+		break;
 
-	    case yellow: getStyleClass().add("component-yellow");
-	    break;
+		case not:
+			getStyleClass().add("component-not");
+		break;
 
-	    case black:getStyleClass().add("component-black");
-	    break;
+		case nor:
+			getStyleClass().add("component-nor");
+		break;
+		
 	        
 	    default:break;
 	    }
