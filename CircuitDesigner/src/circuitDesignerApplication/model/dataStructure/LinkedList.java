@@ -87,12 +87,33 @@ public class LinkedList {
 	            Nodo aux = head;
 	            int i = 0;
 	            while(aux != null){
-	                System.out.print(i + ".[ " + aux.getData()+ " ]" + " ->  ");
+	                System.out.print(i + ".[ " +aux.getData()+ " ]" + " ->  ");
 	                aux = aux.getNext();
 	                i++;
 	                }
 	            }
 	     }
+	     
+	    public void remove(Object item) {
+	    	Nodo current=this.head;
+	    	Nodo previous= null;
+	    	boolean found= false;
+	    	while(found==false) {
+	    		if(current.getData()==item) {
+	    			found=true;
+	    		}else {
+	    			previous=current;
+	    			current=current.getNext();
+	    		}
+	    	}
+	    	if(previous==null) {
+	    		this.head=current.getNext();
+	    	}else {
+	    		previous.setNext(current.getNext());
+	    	}
+	    	
+	    	
+	    }
 	    
 	    
 	    public void removeByPosicion(int posicion){

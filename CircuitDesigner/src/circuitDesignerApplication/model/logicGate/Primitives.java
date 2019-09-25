@@ -7,6 +7,7 @@ import circuitDesignerApplication.model.dataStructure.LinkedList;
 
 
 public class Primitives {
+	
 	public static Boolean XOR(LinkedList inConexion) {
         Boolean state;
         int trueCount = 0;

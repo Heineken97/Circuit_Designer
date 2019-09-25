@@ -8,7 +8,7 @@ public class ComponentTableModel extends AbstractTableModel {
 	private String[] columnNames = {
 			"Component",
 			};
-	private Object[][] data = Main.getData();
+	private String[] data = Main.getComponents();
 	
 	public ComponentTableModel() {
 		
@@ -24,10 +24,15 @@ public class ComponentTableModel extends AbstractTableModel {
 		}
 	
 	@Override
-	public Object getValueAt(int rowIndex, int columnIndex) {
-		return data[rowIndex][columnIndex];
-		}
-	public String getColumnName(int col) {
-		return columnNames[col];
-		}
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        return data[rowIndex][columnIndex];
+    }
+	public String[] getData() {
+		return data;
+	}
+	public void setData(String[] data) {
+		this.data = data;
+	}
+	
+
 }

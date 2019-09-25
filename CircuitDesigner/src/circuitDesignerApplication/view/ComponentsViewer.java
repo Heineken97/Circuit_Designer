@@ -2,8 +2,6 @@ package circuitDesignerApplication.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
@@ -19,11 +17,8 @@ import javax.swing.JScrollPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import circuitDesignerApplication.Main;
-import circuitDesignerApplication.controller.Picker;
 
 public class ComponentsViewer extends JPanel {
-	private static JPanel preview;
     private static Vector<String> listOfComponents = new Vector<>(0);
     private static JList list;
     
