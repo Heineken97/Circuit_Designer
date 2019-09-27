@@ -3,12 +3,13 @@ package circuitDesignerApplication.model.logicGate;
 import java.util.ArrayList;
 
 import circuitDesignerApplication.model.Component;
+import circuitDesignerApplication.model.Conexion;
 import circuitDesignerApplication.model.dataStructure.LinkedList;
 
 
 public class Primitives {
 	
-	public static Boolean XOR(LinkedList inConexion) {
+	public static Boolean XOR(LinkedList<Conexion> inConexion) {
         Boolean state;
         int trueCount = 0;
         for (Conexion inCon : inConexion) {
@@ -26,7 +27,7 @@ public class Primitives {
         return true;
     }
 
-    public static Boolean AND(LinkedList inConexion) {
+    public static Boolean AND(LinkedList<Conexion> inConexion) {
         Boolean state;
         for (Conexion inCon : inConexion) {
             state = inCon.getState();
@@ -41,7 +42,7 @@ public class Primitives {
         return true;
     }
 
-    public static Boolean OR(LinkedList inConexion) {
+    public static Boolean OR(LinkedList<Conexion> inConexion) {
         Boolean state;
         for (Conexion inCon : inConexion) {
             state = inCon.getState();
@@ -65,13 +66,13 @@ public class Primitives {
             return false;
         }
     }
-    public static Boolean NAND(LinkedList inConexion) {
+    public static Boolean NAND(LinkedList<Conexion> inConexion) {
         return NOT(AND(inConexion));
     }
-    public static Boolean NOR(LinkedList inConexion) {
+    public static Boolean NOR(LinkedList<Conexion> inConexion) {
         return NOT(OR(inConexion));
     }
-    public static Boolean XNOR(LinkedList inConexion) {
+    public static Boolean XNOR(LinkedList<Conexion> inConexion) {
         return NOT(XOR(inConexion));
     }
 }

@@ -22,9 +22,11 @@ import javax.swing.Timer;
 import circuitDesignerApplication.Main;
 import circuitDesignerApplication.controller.Mouse;
 import circuitDesignerApplication.model.Component;
+import circuitDesignerApplication.model.Conexion;
 import circuitDesignerApplication.model.Element;
 import circuitDesignerApplication.model.NodoComponent;
 import circuitDesignerApplication.model.Wire;
+import circuitDesignerApplication.model.dataStructure.Nodo;
 
 public class Sheet extends JPanel {
 	private Component component = null;
@@ -104,8 +106,8 @@ public class Sheet extends JPanel {
                 Point point = e.getPoint();
                 ////Check
                 Main.getWindow().getTool().changeMousePosition(mouseLoc.x, mouseLoc.y);
-                if (((Element) Element.getDrawing().getDatabyIndex(0)).underMouse(point)) {
-                    ((Element) Element.getDrawing().getDatabyIndex(0)).moveComponent(point);
+                if ( ((Element) Element.drawing.getHead().getData()).underMouse(point)) {
+                	((Element) Element.drawing.getHead().getData()).moveComponent(point);
                 }
             }
             
@@ -159,7 +161,7 @@ public class Sheet extends JPanel {
                 if (Mouse.getState() == Mouse.State.resting) {
                     Mouse.setState(Mouse.State.placingComponent);
                 } else if (Mouse.getState() == Mouse.State.placingComponent) {
-                    Component.getDraw().insertFirst(component);
+                    Component.getDraw().add((Conexion) component);
                     component = null;
                     Mouse.setState(Mouse.State.resting);
                 }
@@ -174,7 +176,7 @@ public class Sheet extends JPanel {
                     addPoint();
                 }
             }
-            for (NodoComponent node : NodoComponent.getAllNodes()) {
+            for (NodoComponent node : NodoComponent.allNodes){
                 if (node.getBounds().contains(mouseLoc)) {
                     if (startingNode == null) {
                         startingNode = node;
@@ -221,7 +223,7 @@ public class Sheet extends JPanel {
 
         public void drawShapes(Graphics g) {
             Graphics2D g2d = (Graphics2D) g;
-            for (Component i : draw) {
+            for (Component i :Component.getDraw()) {
                 i.draw(g2d);
             }
         }

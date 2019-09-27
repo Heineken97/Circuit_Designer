@@ -9,9 +9,12 @@ public class Nodo {
         this.next = null;
     }
     
+    public Nodo(Object data2) {
+    	this.data = data2;
+        this.next = null;
+	}
     ///Getters
-
-    public Object getData() {
+	public Object getData() {
         return data;
     }
     public Nodo getNext() {

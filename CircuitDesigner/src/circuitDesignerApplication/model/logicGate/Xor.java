@@ -26,9 +26,9 @@ public class Xor extends Component{
 		this.setY(y);
 		this.shape=new AndShape(x,y);
         
-		getOutConexion().insertFirst(new Conexion(Types.IO.Output));
+		outConexion.insertFirst(new Conexion(Types.IO.Output));
         for (int i = 0; i < n; i++) {
-        	getInConexion().insertFirst(new Conexion(Types.IO.Input));
+        	inConexion.insertFirst(new Conexion(Types.IO.Input));
         }
     }
     
@@ -46,7 +46,7 @@ public class Xor extends Component{
     }
 
     public void updateState() {
-        state = Primitives.XOR(getInConexion());
+        state = Primitives.XOR(inConexion);
     }
     
     public String getName(){

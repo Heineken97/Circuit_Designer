@@ -7,7 +7,7 @@ import circuitDesignerApplication.model.dataStructure.LinkedList;
 
 public class Element {
 	
-	private static LinkedList drawing= new LinkedList();;
+	public static LinkedList<Element> drawing= new LinkedList<>();
 	private Point local;
 	
 	public Element(int x, int y) {
@@ -48,15 +48,5 @@ public class Element {
 	}
 
 
-	/**
-	 * @return the drawing
-	 */
-	public static LinkedList getDrawing() {
-		return drawing;
-	}
-	public static void setDrawing(LinkedList drawing) {
-		Element.drawing = drawing;
-	}
-	
 
 }

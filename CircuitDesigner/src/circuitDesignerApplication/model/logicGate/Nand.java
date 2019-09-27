@@ -27,14 +27,14 @@ public class Nand extends Component {
 		this.setY(y);
 		this.shape=new AndShape(x,y);
 
-		getOutConexion().insertFirst(new Conexion(Types.IO.Output));
+		outConexion.insertFirst(new Conexion(Types.IO.Output));
         for (int i = 0; i < n; i++) {
-        	getInConexion().insertFirst(new Conexion(Types.IO.Input));
+        	inConexion.insertFirst(new Conexion(Types.IO.Input));
         }
     }
     
     public void updateState() {
-        state = Primitives.NAND(getInConexion());
+        state = Primitives.NAND(inConexion);
     }
     
     public String getName(){

@@ -1,5 +1,6 @@
 package circuitDesignerApplication;
 
+
 import circuitDesignerApplication.model.Component;
 import circuitDesignerApplication.model.logicGate.And;
 import circuitDesignerApplication.model.logicGate.Nand;
@@ -13,7 +14,7 @@ import circuitDesignerApplication.view.Window;
 public class Main {
 	
 	private static Window window;
-	private static String[] Components = {""};
+    public static Object[][] Components;
 
 	public static void main(String[] args) {
 		window=new Window();
@@ -24,16 +25,10 @@ public class Main {
 	public static Window getWindow() {
 		return window;
 	}
-	public static String[] getComponents() {
-		return Components;
-	}
 	
 	/// Setters
 	public static void setWindow(Window window) {
 		Main.window = window;
-	}
-	public static void setComponents(String[] components) {
-		Components = components;
 	}
 
 	
@@ -86,4 +81,5 @@ public class Main {
 		}
 		return c;
 	}
+
 }

@@ -5,24 +5,31 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import circuitDesignerApplication.model.dataStructure.LinkedList;
+import circuitDesignerApplication.model.dataStructure.Nodo;
 
 public class Wire extends Component{
 	private int [] x;
 	private int [] y;
 	private GeneralPath polyline;
 	int npoints;
-	private static LinkedList allTheWires=new LinkedList();
+	private static CopyOnWriteArrayList<Wire> allTheWires = new CopyOnWriteArrayList<>();
 	private NodoComponent from;
 	private NodoComponent to;
 	
 	public Wire(int[] _x, int[] _y,int _npoints,NodoComponent nodo1, NodoComponent nodo2) {
 		from=nodo1;
 		to=nodo2;
-		nodo1.getConnectedTO().insertFirst(nodo2);
-		nodo2.getConnectedTO().insertFirst(nodo1);
-		allTheWires.insertFirst(this);
+		
+		Nodo nodoo2=new Nodo();
+		nodoo2.setData(nodo2);
+		Nodo nodoo1=new Nodo();
+		nodoo1.setData(nodo1);
+		
+		nodo1.getConnectedTO().insertFirst(nodoo2);
+		nodo2.getConnectedTO().insertFirst(nodoo1);
 		
 		npoints = _npoints;
         x = new int[npoints];
@@ -41,7 +48,7 @@ public class Wire extends Component{
         for (int index = 1; index < npoints; index++) {
             polyline.lineTo(x[index], y[index]);
         };
-        allTheWires.insertFirst(this);
+        allTheWires.add(this);
 		
 	}
 	
@@ -51,7 +58,7 @@ public class Wire extends Component{
 	        g2d.draw(polyline);
 	    }
 	 
-	public static void delete(final LinkedList in, final LinkedList out) {
+	public static void delete(final LinkedList<Conexion> in, final LinkedList<Conexion> out) {
         Thread deleteThread = new Thread() {
             public void run() {
                 for (Wire wire : allTheWires) {

@@ -8,14 +8,14 @@ import java.awt.geom.Ellipse2D;
 
 import circuitDesignerApplication.controller.Types;
 import circuitDesignerApplication.model.dataStructure.LinkedList;
+import circuitDesignerApplication.model.dataStructure.Nodo;
 
 public class NodoComponent extends Component{
 
-	private LinkedList allNodes= new LinkedList();
-	private LinkedList connectedTO= new LinkedList();
+	public static LinkedList<Nodo> allNodes= new LinkedList<>();
+	private LinkedList<Nodo> connectedTO= new LinkedList<>();
 	private float[] dashStroke= {4.0f};
 	private Rectangle outline;
-	///private Rectangle outline;
 	private Types.IO type;
 	private Ellipse2D.Double shape;
 	private Conexion conexion;
@@ -24,7 +24,9 @@ public class NodoComponent extends Component{
 	public NodoComponent(Conexion conexion, Types.IO type) {
 		 this.setType(type);
 		 this.setConexion(conexion);
-		 allNodes.insertFirst(this);
+		 Nodo newNode=new Nodo();
+		 newNode.setData(conexion);
+		 allNodes.insertFirst(newNode);
 	}
 	
 	 public void updateState() {
@@ -33,15 +35,14 @@ public class NodoComponent extends Component{
 			 return;
 			 }
 		 
-		 for (NodoComponent n : connectedTO) {
-			 if (n.getType() == Types.IO.Output) {
-				 state = n.getState();
+		 for (Nodo n : connectedTO) {
+			 if (n.getData() == Types.IO.Output) {
+				 state = ((NodoComponent) n.getData()).getState();
 				 }
 			 }
-		 for (NodoComponent n : connectedTO) {
-			 if (n.getType() == Types.IO.Input) {
-				 System.out.println("here: "+n.getState());
-				 state = n.state;
+		 for (Nodo n : connectedTO) {
+			 if (n.getData() == Types.IO.Input) {
+				 state = ((NodoComponent) n.getData()).getState();
 				 return;
 				 }
 			 }
@@ -78,8 +79,15 @@ public class NodoComponent extends Component{
 	public Rectangle getBounds() {
         return new Rectangle(getX(), getY(), 10, 10);
     }
+	public LinkedList<Nodo> getConnectedTO() {
+		return connectedTO;
+	}
+
 
 	///Setters
+	public void setConnectedTO(LinkedList<Nodo> connectedTO) {
+		this.connectedTO = connectedTO;
+	}
 	public void setType(Types.IO type) {
 		this.type = type;
 	}
@@ -93,20 +101,6 @@ public class NodoComponent extends Component{
 		this.shape = shape;
 	}
 
-	/**
-	 * @return the allNodes
-	 */
-	public LinkedList getAllNodes() {
-		return allNodes;
-	}
-	public LinkedList getConnectedTO() {
-		return connectedTO;
-	}
-	public void setAllNodes(LinkedList allNodes) {
-		this.allNodes = allNodes;
-	}
-	public void setConnectedTO(LinkedList connectedTO) {
-		this.connectedTO = connectedTO;
-	}
+
 
 }

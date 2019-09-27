@@ -2,6 +2,7 @@ package circuitDesignerApplication.model;
 
 import java.awt.Graphics2D;
 import java.awt.Shape;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import circuitDesignerApplication.controller.Mouse;
 import circuitDesignerApplication.model.dataStructure.LinkedList;
@@ -13,20 +14,14 @@ public abstract class Component {
 	
 	private static Boolean pullState=false;
 	
-	private LinkedList inConexion=new LinkedList();
-	private LinkedList outConexion=new LinkedList();
-	private static LinkedList draw= new LinkedList();
+	public LinkedList<Conexion> inConexion=new LinkedList<>();
+	public LinkedList<Conexion> outConexion=new LinkedList<>();
+	private static CopyOnWriteArrayList<Conexion> draw= new CopyOnWriteArrayList<>();
 	
 	
 	private int gateInputs=999;
 	
 	public Component() {
-	}
-	
-	public void delete() {
-		Wire.delete(this.inConexion, this.outConexion);
-        Component.draw.remove(this);
-        Mouse.resetDeleteLocation();
 	}
 	
 	public void drawConexions(Graphics2D g2d) {
@@ -41,12 +36,27 @@ public abstract class Component {
     }
 	
 	public void drawInConexion(Graphics2D g2d) {
-        for (Conexion con : inConexion) {
-            con.draw(g2d);
+        for (Conexion con: inConexion) {
+        	con.draw(g2d);
         }
     }
+	public void onClick() {
+    }
+	public void delete() {
+		Wire.delete(this.inConexion, this.outConexion);
+        Component.draw.remove(this);
+        Mouse.resetDeleteLocation();
+	}
+	
+	public abstract void draw(Graphics2D g2d) ;
 	
 	///Getters
+	public Boolean getState() {
+        return null;
+    }
+	public static CopyOnWriteArrayList<Conexion> getDraw() {
+		return draw;
+	}
 	public String getName() {
 		return null;
 	}
@@ -72,9 +82,10 @@ public abstract class Component {
 		return null;
 	}
 
-	public abstract void draw(Graphics2D g2d) ;
-
 	///Setters
+	public static void setDraw(CopyOnWriteArrayList<Conexion> draw) {
+		Component.draw = draw;
+	}
 	public void setGateInputs(int gateInputs) {
 		this.gateInputs = gateInputs;
 	}
@@ -93,32 +104,5 @@ public abstract class Component {
 	public void setMovY(int movY) {
 		this.movY = movY;
 	}
-
-	/**
-	 * @return the draw
-	 */
-	public static LinkedList getDraw() {
-		return draw;
-	}
-	public static void setDraw(LinkedList draw) {
-		Component.draw = draw;
-	}
-	public LinkedList getInConexion() {
-		return inConexion;
-	}
-	public LinkedList getOutConexion() {
-		return outConexion;
-	}
-	public void setInConexion(LinkedList inConexion) {
-		this.inConexion = inConexion;
-	}
-	public void setOutConexion(LinkedList outConexion) {
-		this.outConexion = outConexion;
-	}
-	
-	public void onClick() {
-		
-	}
-
 
 }
