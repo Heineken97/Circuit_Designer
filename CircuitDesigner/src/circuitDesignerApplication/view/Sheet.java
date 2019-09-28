@@ -26,8 +26,12 @@ import circuitDesignerApplication.model.Conexion;
 import circuitDesignerApplication.model.Element;
 import circuitDesignerApplication.model.NodoComponent;
 import circuitDesignerApplication.model.Wire;
-import circuitDesignerApplication.model.dataStructure.Nodo;
 
+/*** 
+ * Creacion de hoja donde se dibujan los componentes y los cables 
+ * @author jimejose
+ *
+ */
 public class Sheet extends JPanel {
 	private Component component = null;
 	private Wire wire = null;
@@ -49,6 +53,9 @@ public class Sheet extends JPanel {
     
     private static Sheet ref;
     
+    /***
+     * Add un punto en la hoja
+     */
     public void addPoint() {
         try {
         	xl[npoint - 1] = Mouse.getLocX();
@@ -60,7 +67,9 @@ public class Sheet extends JPanel {
         	System.out.print(e);
         }
     }
-
+    /***
+     * Quitar el punto de la hoja
+     */
     public void deletePoint() {
         if (npoint != 1) {
             npoint--;
@@ -75,6 +84,11 @@ public class Sheet extends JPanel {
         npoint = 1;
     }
     
+    /***
+     * Constructor
+     * @param widht
+     * @param height
+     */
     
     public Sheet(int widht, int height) {
     	ref=this;
@@ -133,7 +147,9 @@ public class Sheet extends JPanel {
         this.setBorder(BorderFactory.createLineBorder(Color.blue));
         
         }
-        
+        /***
+         * Verificando si agarra el componente
+         */
         public void checkClick() {
             if (Mouse.getState() == Mouse.State.placingComponent) {
                 return;
@@ -147,7 +163,10 @@ public class Sheet extends JPanel {
                 }
             }
         }
-        
+        /***
+         * Seleccionando el componente en la hoja
+         * @param e
+         */
         public void component(MouseEvent e) {
             if (SwingUtilities.isRightMouseButton(e) && Mouse.getState() == Mouse.State.placingComponent) {
                 Mouse.setState(Mouse.State.resting);
@@ -176,7 +195,9 @@ public class Sheet extends JPanel {
             }
         }
 
-
+	/***
+	 * Dibujando cable y componente
+	 */
         public void paint(Graphics g) {
             super.paint(g);
             drawGrid(g);

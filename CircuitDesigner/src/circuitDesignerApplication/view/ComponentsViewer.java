@@ -37,11 +37,8 @@ public class ComponentsViewer extends JPanel {
     private static Vector<String> listOfComponents = new Vector<>(0);
     private static JList list;
     
-    
-    
     public ComponentsViewer() {
-    	
- 
+  
 		list = new JList(listOfComponents);
         JScrollPane pane = new JScrollPane(list);
         pane.setPreferredSize(new Dimension(50, this.getPreferredSize().height - 1));
@@ -58,7 +55,6 @@ public class ComponentsViewer extends JPanel {
         JButton create_component = new JButton("New Component");
         create_component.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent event) {
-        		///Falta modificar
         		new Picker();
         		 addToList("Componente");
         		}

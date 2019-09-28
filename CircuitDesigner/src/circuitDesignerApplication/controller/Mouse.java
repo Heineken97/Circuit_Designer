@@ -2,7 +2,11 @@ package circuitDesignerApplication.controller;
 
 import java.awt.Point;
 
-
+/***
+ * Determinando funcionamiento del mouse
+ * @author jimejose
+ *
+ */
 public class Mouse {
 	private static String component = null;
     private static Point MouseLocation = new Point(0, 0);

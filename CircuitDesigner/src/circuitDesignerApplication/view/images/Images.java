@@ -9,13 +9,13 @@ import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 
 public class Images {
-	private static ImageIcon AND = new ImageIcon("images/AND.png");
-	private static ImageIcon NAND = new ImageIcon("images/NAND.png");
-	private static ImageIcon NOR = new ImageIcon("images/NOR.png");
-	private static ImageIcon NOT = new ImageIcon("images/NOT.png");
-	private static ImageIcon OR = new ImageIcon("images/OR.png");
-	private static ImageIcon XNOR = new ImageIcon("images/XNOR.png");
-	private static ImageIcon XOR = new ImageIcon("images/XOR.png");
+	private static ImageIcon AND = new ImageIcon("view/images/AND.png");
+	private static ImageIcon NAND = new ImageIcon("view/images/NAND.png");
+	private static ImageIcon NOR = new ImageIcon("view/images/NOR.png");
+	private static ImageIcon NOT = new ImageIcon("view/images/NOT.png");
+	private static ImageIcon OR = new ImageIcon("view/images/OR.png");
+	private static ImageIcon XNOR = new ImageIcon("view/images/XNOR.png");
+	private static ImageIcon XOR = new ImageIcon("view/images/XOR.png");
 	
 	private static ImageIcon getScaledImageIcon(ImageIcon srcIcon, float _w, float _h) {
 		float y = srcIcon.getIconHeight();

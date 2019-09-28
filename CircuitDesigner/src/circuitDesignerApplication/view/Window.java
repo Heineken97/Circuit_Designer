@@ -8,6 +8,9 @@ public class Window extends JFrame {
 	private static Sheet sheet;
     private static MouseBar mousepos;
     private static Window ref;
+    /***
+     * Creamos la venta JFrame, add de la hoja de dibujo, visualizador de components
+     */
     
     public Window(){
     	

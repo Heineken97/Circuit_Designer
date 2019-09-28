@@ -10,7 +10,7 @@ import circuitDesignerApplication.model.dataStructure.LinkedList;
 
 public class Conexion extends Component{
 	private int x,y;
-	private LinkedList wires = new LinkedList();
+	private LinkedList<Wire> wires = new LinkedList<>();
 	private Line2D.Double shape;
 	private Types.IO type;
 	private NodoComponent node;

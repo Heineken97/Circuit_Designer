@@ -15,6 +15,11 @@ public class Main {
 	
 	private static Window window;
     public static Object[][] Components;
+    
+    /***
+     * Crear Ventana Desktop
+     * @param args
+     */
 
 	public static void main(String[] args) {
 		window=new Window();
@@ -31,7 +36,14 @@ public class Main {
 		Main.window = window;
 	}
 
-	
+	/***
+	 * Creating certain component 
+	 * @param selectedComponent
+	 * @param x
+	 * @param y
+	 * @param gates
+	 * @return
+	 */
 	public static Component classForName(String selectedComponent,int x,int y,int gates) {
 		Component c=null;
 		switch(selectedComponent) {
