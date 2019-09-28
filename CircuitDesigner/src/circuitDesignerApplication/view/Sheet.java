@@ -105,7 +105,7 @@ public class Sheet extends JPanel {
                 mouseLoc.y = e.getY();
                 Point point = e.getPoint();
                 ////Check
-                Main.getWindow().getTool().changeMousePosition(mouseLoc.x, mouseLoc.y);
+                Main.getWindow().getMousepos().changeMousePosition(mouseLoc.x, mouseLoc.y);
                 if ( ((Element) Element.drawing.getHead().getData()).underMouse(point)) {
                 	((Element) Element.drawing.getHead().getData()).moveComponent(point);
                 }
@@ -125,7 +125,7 @@ public class Sheet extends JPanel {
 
                 mouseLoc.setLocation(e.getX(), e.getY());
                 Mouse.setMouseLocation(e.getX(), e.getY());
-                Main.getWindow().getTool().changeMousePosition(mouseLoc.x, mouseLoc.y);
+                Main.getWindow().getMousepos().changeMousePosition(mouseLoc.x, mouseLoc.y);
                 }
             });
         
@@ -167,31 +167,7 @@ public class Sheet extends JPanel {
                 }
             }
         }
-        
-        public void track(MouseEvent e) {
-            if (startingNode != null) {
-                if (SwingUtilities.isRightMouseButton(e)) {
-                    deletePoint();
-                } else {
-                    addPoint();
-                }
-            }
-            for (NodoComponent node : NodoComponent.allNodes){
-                if (node.getBounds().contains(mouseLoc)) {
-                    if (startingNode == null) {
-                        startingNode = node;
-                        addPoint();
-                    } else {
-                        endingNode = node;
-                        wire = new Wire(xl, yl, npoint, startingNode, endingNode);
-                        npoint = 1;
-                        startingNode = null;
-                        resetLine();
-                    }
-                    break;
-                }
-            }
-        }
+
         
         public void select(MouseEvent e) {
             if (e.getClickCount() == 2&&SwingUtilities.isRightMouseButton(e)){

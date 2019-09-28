@@ -16,9 +16,16 @@ import circuitDesignerApplication.model.logicGate.shapes.AndShape;
 public class And extends Component {
 	public boolean state=false;
 	private Area shape;
-	public And(int x, int y) {
+	public And() {
+		this.setGateInputs(2);
+		this.setX(0);
+		this.setY(0);
+		this.shape=new AndShape(0,0);
 		
-		this(x, y, 2);
+		outConexion.insertFirst(new Conexion(Types.IO.Output));
+		for (int i = 0; i < 2; i++) {
+			inConexion.insertFirst(new Conexion(Types.IO.Input));
+			}
 	}
 	
 	public And(int x, int y, int n) {

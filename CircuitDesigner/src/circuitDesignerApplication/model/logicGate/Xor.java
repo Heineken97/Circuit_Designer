@@ -16,9 +16,17 @@ public class Xor extends Component{
 	private boolean state=false;
 	private Area shape;
 	
-	public Xor(int x, int y) {
-        this(x, y, 2);
-    }
+	public Xor() {
+		this.setGateInputs(2);
+		this.setX(0);
+		this.setY(0);
+		this.shape=new AndShape(0,0);
+		
+		outConexion.insertFirst(new Conexion(Types.IO.Output));
+		for (int i = 0; i < 2; i++) {
+			inConexion.insertFirst(new Conexion(Types.IO.Input));
+			}
+	}
 
     public Xor(int x, int y, int n) {
     	this.setGateInputs(n);

@@ -10,22 +10,17 @@ public class FileToolbar extends JToolBar {
 	
 	public FileToolbar(){
         JButton exitButton = new JButton();
+        exitButton.setText("Exit");
          exitButton.addActionListener(new ActionListener() {
         	 public void actionPerformed(ActionEvent event) {
                 System.exit(0);
                 }
         	 });
-         
-         JButton newFile = new JButton();
-         newFile.setToolTipText("New File");
-         JButton open = new JButton();
-         open.setToolTipText("Open Design");
+      
          JButton save = new JButton();
+         save.setText("Save Design");
          save.setToolTipText("Save Design");
-       
-         
-         this.add(newFile);
-         this.add(open);
+
          this.add(save);
          this.add(exitButton);
          

@@ -36,43 +36,43 @@ public class Main {
 		Component c=null;
 		switch(selectedComponent) {
 		case "And - 2":
-			c=new And(x,y);
+			c=new And();
 			break;
 		case "And - n":
 			c=new And(x,y,gates);
 			break;
 		case "Nand - 2":
-			c=new Nand(x,y);
+			c=new Nand();
 			break;
 		case "Nand - n":
 			c=new Nand(x,y,gates);
 			break;
 		case "Or - 2":
-			c=new Or(x,y);
+			c=new Or();
 			break;
 		case "Or - n":
 			c=new Or(x,y,gates);
 			break;
 		case "Nor - 2":
-			c=new Nor(x,y);
+			c=new Nor();
 			break;
 		case "Nor - n":
 			c=new Nor(x,y,gates);
 			break;
 		case "Not - 2":
-			c=new Not(x,y);
+			c=new Not();
 			break;
 		case "Not - n":
 			c=new Not(x,y,gates);
 			break;
 		case "Xor - 2":
-			c=new Xor(x,y);
+			c=new Xor();
 			break;
 		case "Xor - n":
 			c=new Xor(x,y,gates);
 			break;
 		case "Xnor - 2":
-			c=new Xnor(x,y);
+			c=new Xnor();
 			break;
 		case "Xnor - n":
 			c=new Xnor(x,y,gates);

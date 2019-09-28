@@ -2,6 +2,7 @@ package circuitDesignerApplication.controller;
 
 import java.awt.Point;
 
+
 public class Mouse {
 	private static String component = null;
     private static Point MouseLocation = new Point(0, 0);
@@ -68,6 +69,7 @@ public class Mouse {
 	public static void setState(State state) {
 		Mouse.state = state;
 	}
+
 	public static void setDeleteLocation() {
     	Thread autoReset = new Thread() {
     		public void run() {
@@ -82,5 +84,6 @@ public class Mouse {
     		deleteLocation = MouseLocation;
     		autoReset.start();
     		}
+
 }
 
