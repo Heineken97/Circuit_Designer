@@ -15,8 +15,3 @@ dependencies {
 application {
     mainClassName = 'your.main.class.path.Main'
 }
-
-javafx {
-    version = "17"
-    modules = [ 'javafx.controls', 'javafx.fxml' ]
-}
