@@ -13,7 +13,7 @@ dependencies {
 }
 
 application {
-    mainClassName = 'application.Main'
+    mainClassName = 'your.main.class.path.Main'
 }
 
 javafx {
