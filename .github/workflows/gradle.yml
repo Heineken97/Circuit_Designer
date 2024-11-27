@@ -27,7 +27,7 @@ jobs:
         gradle-version: '8.9'
 
     - name: Build with Gradle
-      run: ./gradlew build
+      run: gradle build
 
   dependency-submission:
 
@@ -49,4 +49,4 @@ jobs:
         gradle-version: '8.9'
 
     - name: Generate and submit dependency graph
-      run: ./gradlew dependencies
+      run: gradle dependencies
